@@ -11,7 +11,7 @@ use_directory_urls = false
 [project]
 site_name = "CipherToken"
 
-site_description = "High-performance Python cryptography and JWT management library built with Rust"
+site_description = "High-performance Python cryptography and JWT library built with Rust. Fast token generation, validation, and key management for secure authentication."
 site_author = "Cipher-Unit"
 
 site_url = "https://cipherunits.github.io/CipherToken/"
@@ -40,26 +40,39 @@ social = [
 
 [project.theme]
 logo = "logo.png"
+favicon = "images/favicon.ico"
+primary = "indigo"
 
-# Zensical allows you to override specific blocks, partials, or whole
-# templates as well as to define your own templates. To do this, uncomment
-# the custom_dir setting below and set it to a directory in which you
-# keep your template overrides.
-#
-# Read more:
-# - https://zensical.org/docs/customization/#extending-the-theme
-#
-#custom_dir = "overrides"
+# SEO Settings
+plugins = ["search", "sitemap", "robots", "redirects"]
 
-# With the "favicon" option you can set your own image to use as the icon
-# browsers will use in the browser title bar or tab bar. The path provided
-# must be relative to the "docs_dir".
-#
-# Read more:
-# - https://zensical.org/docs/setup/logo-and-icons/#favicon
-# - https://developer.mozilla.org/en-US/docs/Glossary/Favicon
-#
-#favicon = "images/favicon.png"
+[project.extra.seo]
+google_site_verification = ""
+bing_site_verification = ""
+yandex_site_verification = ""
+
+[project.extra.structured_data]
+logo = "images/logo.png"
+image = "https://cipherunits.github.io/CipherToken/images/og-image.png"
+
+[project.extra.og]
+title = "CipherToken - High-performance Python cryptography and JWT library"
+description = "Fast Python JWT library built with Rust. Secure token generation, validation, and key management for authentication."
+image = "https://cipherunits.github.io/CipherToken/images/og-image.png"
+type = "website"
+
+[project.extra.twitter]
+card = "summary_large_image"
+site = "@CipherToken"
+creator = "@CipherToken"
+
+[sitemap]
+url = "https://cipherunits.github.io/CipherToken/"
+changefreq = "weekly"
+priority = 0.8
+
+[robots]
+enabled = true
 
 # Zensical supports more than 60 different languages. This means that the
 # labels and tooltips that Zensical's templates produce are translated.

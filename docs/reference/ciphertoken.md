@@ -1,3 +1,10 @@
+---
+title: CipherToken API Reference
+description: Complete API reference for the CipherToken class. Methods for signing, verification, decoding, rotation, and expiry inspection.
+keywords: ciphertoken, api, jwt, python, rust, reference
+image: https://cipherunits.github.io/CipherToken/logo.png
+---
+
 # API Reference — CipherToken
 
 The `CipherToken` class is the core token engine. It handles signing, verification, decoding, rotation, and expiry inspection for both **access** and **refresh** tokens.

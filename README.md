@@ -1,5 +1,10 @@
 <img src="https://github.com/cipherunits/CipherToken/blob/main/logo.png" width=100>
 
+<!--
+description: High-performance Python JWT library built with Rust. Fast token generation, validation, and key management.
+keywords: jwt, python, rust, cryptography, security, authentication, hs256, rs256, eddsa
+-->
+
 # CipherToken
 
 **CipherToken** is a **next-generation** token engine built for developers who demand speed, security, and reliability. Currently focused on **JWT**, it provides a complete token lifecycle — from key generation and token minting to verification, rotation, and expiry tracking — all backed by the raw performance of **Rust**.

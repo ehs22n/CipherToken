@@ -1,3 +1,10 @@
+---
+title: Installation - CipherToken
+description: Install CipherToken, the high-performance Python JWT library built with Rust. Supports pip, poetry, uv, pdm, and pipx.
+keywords: jwt, install, python, rust, cryptography, pip, poetry, pipx
+image: https://cipherunits.github.io/CipherToken/logo.png
+---
+
 # Installation
 
 Choose your preferred method to install **CipherToken**.

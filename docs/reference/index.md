@@ -1,3 +1,10 @@
+---
+title: API Reference - CipherToken Documentation
+description: Complete API reference for CipherToken modules: CipherToken, secret, time, utils, algorithms, and jwt. Built with Rust for Python.
+keywords: api, documentation, jwt, python, rust, reference, cryptography
+image: https://cipherunits.github.io/CipherToken/logo.png
+---
+
 # API Reference
 
 Complete reference for all **CipherToken** modules, classes, and methods.

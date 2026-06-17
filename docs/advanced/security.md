@@ -1,3 +1,10 @@
+---
+title: Security Best Practices - CipherToken
+description: Security best practices for JWT tokens. Learn about secret management, key rotation, algorithm selection, and token expiry.
+keywords: security, jwt, best-practices, cryptography, rust, python
+image: https://cipherunits.github.io/CipherToken/logo.png
+---
+
 # Advanced Guide — Security
 
 Follow these security best practices to keep your token infrastructure safe. Part of **[Cipher-Unit](https://cipherunit.xyz/)**.
