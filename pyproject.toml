@@ -22,3 +22,9 @@ classifiers = [
 [tool.maturin]
 bindings = "pyo3"
 strip = true
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+]
