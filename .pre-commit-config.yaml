@@ -3,8 +3,9 @@ repos:
     rev: v0.13.0
     hooks:
       - id: ruff-check
-        args: ['--ignore', 'F401']
+        args: ['--ignore', 'F401', '--exclude', '.*\\.pyi']
       - id: ruff-format
+        exclude: '.*\\.pyi'
 
   - repo: local
     hooks:

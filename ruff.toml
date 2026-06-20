@@ -1,0 +1,10 @@
+line-length = 88
+target-version = "py38"
+
+[lint]
+ignore = ["F401"]
+
+exclude = [".venv", "target", "*.pyi"]
+
+[format]
+exclude = [".venv", "target", "*.pyi"]

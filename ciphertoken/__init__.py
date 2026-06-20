@@ -15,12 +15,12 @@ from .algorithms import (
     RS512,
 )
 from .ciphertoken import CipherToken, is_jwt_format, validate_jwt_format
-from .jwt import TOKEN_ACCESS as JWT_TOKEN_ACCESS, TOKEN_REFRESH as JWT_TOKEN_REFRESH
-from .jwt import access as jwt_access, refresh as jwt_refresh, rotation as jwt_rotation
+from .jwt import TOKEN_ACCESS, TOKEN_REFRESH
+from .jwt import access, refresh, rotation
 from .jwt import (
-    access_async as jwt_access_async,
-    refresh_async as jwt_refresh_async,
-    rotation_async as jwt_rotation_async,
+    access_async,
+    refresh_async,
+    rotation_async,
 )
 from .secret import (
     generate_hmac_secret,
@@ -30,7 +30,7 @@ from .secret import (
     secret_key_with_size,
 )
 from .time import days, hours, minutes, now, seconds, weeks
-from .utils import DEFAULT_SECRET_SIZE, MIN_SECRET_SIZE, TOKEN_ACCESS, TOKEN_REFRESH
+from .utils import DEFAULT_SECRET_SIZE, MIN_SECRET_SIZE
 
 __all__ = [
     "CipherToken",
@@ -69,6 +69,4 @@ __all__ = [
     "weeks",
     "DEFAULT_SECRET_SIZE",
     "MIN_SECRET_SIZE",
-    "TOKEN_ACCESS",
-    "TOKEN_REFRESH",
 ]

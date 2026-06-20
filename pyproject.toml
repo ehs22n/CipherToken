@@ -34,4 +34,4 @@ test = [
 include = ["ciphertoken"]
 
 [tool.setuptools.package-data]
-ciphertoken = ["py.typed"]
+ciphertoken = ["py.typed", "*.pyi"]

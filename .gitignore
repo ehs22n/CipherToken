@@ -14,3 +14,5 @@ ciphertoken/*.abi3.so
 __pycache__/
 __pycache__/*
 .pytest_cache
+.ruff_cache
+.ruff_cache/
