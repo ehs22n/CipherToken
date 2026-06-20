@@ -15,4 +15,17 @@ PS384 = _algorithms.PS384
 PS512 = _algorithms.PS512
 EDDSA = _algorithms.EDDSA
 
-__all__ = ["HS256", "HS384", "HS512", "RS256", "RS384", "RS512", "ES256", "ES384", "PS256", "PS384", "PS512", "EDDSA"]
+__all__ = [
+    "HS256",
+    "HS384",
+    "HS512",
+    "RS256",
+    "RS384",
+    "RS512",
+    "ES256",
+    "ES384",
+    "PS256",
+    "PS384",
+    "PS512",
+    "EDDSA",
+]

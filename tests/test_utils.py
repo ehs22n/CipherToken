@@ -1,5 +1,9 @@
-import pytest
-from ciphertoken.utils import DEFAULT_SECRET_SIZE, MIN_SECRET_SIZE, TOKEN_ACCESS, TOKEN_REFRESH
+from ciphertoken.utils import (
+    DEFAULT_SECRET_SIZE,
+    MIN_SECRET_SIZE,
+    TOKEN_ACCESS,
+    TOKEN_REFRESH,
+)
 
 
 class TestUtilsConstants:

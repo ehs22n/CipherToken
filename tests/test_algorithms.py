@@ -1,6 +1,19 @@
 import pytest
 from ciphertoken import CipherToken, is_jwt_format
-from ciphertoken.algorithms import HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, PS256, PS384, PS512, EDDSA
+from ciphertoken.algorithms import (
+    HS256,
+    HS384,
+    HS512,
+    RS256,
+    RS384,
+    RS512,
+    ES256,
+    ES384,
+    PS256,
+    PS384,
+    PS512,
+    EDDSA,
+)
 from ciphertoken.secret import secret_key, generate_rsa_keypair
 
 

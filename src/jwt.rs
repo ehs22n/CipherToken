@@ -12,7 +12,11 @@ pub fn access(py: Python, token: PyRef<CipherToken>, payload: Option<&PyDict>) -
 
 #[pyfunction]
 #[pyo3(signature = (token, payload=None))]
-pub fn refresh(py: Python, token: PyRef<CipherToken>, payload: Option<&PyDict>) -> PyResult<String> {
+pub fn refresh(
+    py: Python,
+    token: PyRef<CipherToken>,
+    payload: Option<&PyDict>,
+) -> PyResult<String> {
     token.refresh(py, payload)
 }
 
@@ -36,7 +40,9 @@ pub fn access_async<'a>(
 ) -> PyResult<&'a PyAny> {
     let token_instance = token.clone_token();
     let payload_cloned = payload.map(|dict| dict.into());
-    future_into_py(py, async move { token_instance.access_async_inner(payload_cloned).await })
+    future_into_py(py, async move {
+        token_instance.access_async_inner(payload_cloned).await
+    })
 }
 
 #[pyfunction]
@@ -48,7 +54,9 @@ pub fn refresh_async<'a>(
 ) -> PyResult<&'a PyAny> {
     let token_instance = token.clone_token();
     let payload_cloned = payload.map(|dict| dict.into());
-    future_into_py(py, async move { token_instance.refresh_async_inner(payload_cloned).await })
+    future_into_py(py, async move {
+        token_instance.refresh_async_inner(payload_cloned).await
+    })
 }
 
 #[pyfunction]
@@ -78,7 +86,9 @@ pub fn rotation_async<'a>(
             ));
         }
 
-        let new_access = token_instance.access_async_inner(payload_cloned.clone()).await?;
+        let new_access = token_instance
+            .access_async_inner(payload_cloned.clone())
+            .await?;
         let new_refresh = token_instance.refresh_async_inner(payload_cloned).await?;
         Ok((new_access, new_refresh))
     })

@@ -1,6 +1,12 @@
 import pytest
 import base64
-from ciphertoken.secret import secret_key, secret_key_with_size, generate_hmac_secret, generate_hmac_secret_async, generate_rsa_keypair
+from ciphertoken.secret import (
+    secret_key,
+    secret_key_with_size,
+    generate_hmac_secret,
+    generate_hmac_secret_async,
+    generate_rsa_keypair,
+)
 from ciphertoken.utils import DEFAULT_SECRET_SIZE
 
 

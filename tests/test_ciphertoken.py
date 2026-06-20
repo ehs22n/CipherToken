@@ -54,7 +54,9 @@ class TestCipherToken:
 
     def test_token_rotation(self, token_hs256):
         refresh_token = token_hs256.refresh({"user_id": 456})
-        access_token, new_refresh = token_hs256.rotation(refresh_token, {"user_id": 456})
+        access_token, new_refresh = token_hs256.rotation(
+            refresh_token, {"user_id": 456}
+        )
         assert is_jwt_format(access_token)
         assert is_jwt_format(new_refresh)
 
@@ -127,7 +129,9 @@ class TestAsyncCipherToken:
     @pytest.mark.asyncio
     async def test_rotation_async(self, token_hs256):
         refresh_token = await token_hs256.refresh_async({"user_id": 789})
-        access_token, new_refresh = await token_hs256.rotation_async(refresh_token, {"user_id": 789})
+        access_token, new_refresh = await token_hs256.rotation_async(
+            refresh_token, {"user_id": 789}
+        )
         assert is_jwt_format(access_token)
         assert is_jwt_format(new_refresh)
         decoded = token_hs256.decode(access_token)
@@ -178,13 +182,15 @@ class TestPayloadEdgeCases:
     def test_complex_payload(self):
         secret = secret_key()
         token = CipherToken(secret, HS256, 3600, 7200)
-        access = token.access({
-            "nested": {"key": "value"},
-            "list": [1, 2, 3],
-            "number": 42,
-            "string": "hello",
-            "bool": True,
-        })
+        access = token.access(
+            {
+                "nested": {"key": "value"},
+                "list": [1, 2, 3],
+                "number": 42,
+                "string": "hello",
+                "bool": True,
+            }
+        )
         decoded = token.decode(access)
         assert decoded["nested"]["key"] == "value"
         assert list(decoded["list"]) == [1, 2, 3]
@@ -199,7 +205,12 @@ class TestJWTFormat:
     def test_is_jwt_format_valid(self):
         assert is_jwt_format("a.b.c") is True
         assert is_jwt_format("header.payload.signature") is True
-        assert is_jwt_format("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c") is True
+        assert (
+            is_jwt_format(
+                "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+            )
+            is True
+        )
 
     def test_is_jwt_format_invalid(self):
         assert is_jwt_format("invalid") is False

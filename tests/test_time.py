@@ -1,4 +1,3 @@
-import pytest
 from ciphertoken.time import now, seconds, minutes, hours, days, weeks
 
 

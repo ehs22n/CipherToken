@@ -1,6 +1,6 @@
 use pyo3::prelude::*;
 
-pub fn register_algorithms_module(py: Python) -> PyResult<Py<PyModule>>{
+pub fn register_algorithms_module(py: Python) -> PyResult<Py<PyModule>> {
     let alg_module = PyModule::new(py, "algorithms")?;
 
     // HMAC

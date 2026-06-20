@@ -1,12 +1,13 @@
+use base64::{engine::general_purpose, Engine as _};
 use pyo3::prelude::*;
+use pyo3_asyncio::tokio::future_into_py;
 use rand::rngs::OsRng;
 use rand::RngCore;
-use base64::{engine::general_purpose, Engine as _};
+use rsa::{
+    pkcs8::{EncodePrivateKey, EncodePublicKey, LineEnding},
+    RsaPrivateKey, RsaPublicKey,
+};
 use tokio::task;
-use pyo3_asyncio::tokio::future_into_py;
-use rsa::{RsaPrivateKey, RsaPublicKey, pkcs8::{EncodePrivateKey, EncodePublicKey, LineEnding}};
-
-
 
 #[pyfunction]
 /// generate random secret key
@@ -54,8 +55,6 @@ pub fn generate_hmac_secret_async<'a>(py: Python<'a>, size: usize) -> PyResult<&
     })
 }
 
-
-
 #[pyfunction]
 pub fn generate_rsa_keypair(bits: Option<usize>) -> PyResult<(String, String)> {
     let bits = bits.unwrap_or(2048);
@@ -84,7 +83,6 @@ pub fn generate_rsa_keypair(bits: Option<usize>) -> PyResult<(String, String)> {
 
     Ok((private_pem, public_pem))
 }
-
 
 pub fn register_secret_module(py: Python) -> PyResult<Py<PyModule>> {
     let m = PyModule::new(py, "secret")?;

@@ -10,19 +10,23 @@ pub fn now() -> u64 {
 }
 
 #[pyfunction]
-pub fn seconds(n: u64) -> u64 { n }
+pub fn seconds(n: u64) -> u64 {
+    n
+}
 
 #[pyfunction]
-pub fn minutes(n: u64) -> u64 { n.saturating_mul(60) }
+pub fn minutes(n: u64) -> u64 {
+    n.saturating_mul(60)
+}
 
 #[pyfunction]
-pub fn hours(n: u64) -> u64 { n.saturating_mul(60).saturating_mul(60) }
+pub fn hours(n: u64) -> u64 {
+    n.saturating_mul(60).saturating_mul(60)
+}
 
 #[pyfunction]
 pub fn days(n: u64) -> u64 {
-    n.saturating_mul(60)
-        .saturating_mul(60)
-        .saturating_mul(24)
+    n.saturating_mul(60).saturating_mul(60).saturating_mul(24)
 }
 
 #[pyfunction]
@@ -32,7 +36,6 @@ pub fn weeks(n: u64) -> u64 {
         .saturating_mul(24)
         .saturating_mul(7)
 }
-
 
 pub fn register_time_module(py: Python) -> PyResult<Py<PyModule>> {
     let time = PyModule::new(py, "time")?;

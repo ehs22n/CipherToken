@@ -1,6 +1,15 @@
 import pytest
 from ciphertoken import CipherToken, is_jwt_format
-from ciphertoken.jwt import access, refresh, rotation, access_async, refresh_async, rotation_async, TOKEN_ACCESS, TOKEN_REFRESH
+from ciphertoken.jwt import (
+    access,
+    refresh,
+    rotation,
+    access_async,
+    refresh_async,
+    rotation_async,
+    TOKEN_ACCESS,
+    TOKEN_REFRESH,
+)
 from ciphertoken.algorithms import HS256
 from ciphertoken.secret import secret_key
 

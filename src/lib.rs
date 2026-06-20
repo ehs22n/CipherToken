@@ -1,20 +1,22 @@
+#![allow(non_local_definitions)]
+use jsonwebtoken::{
+    decode, encode, Algorithm, DecodingKey, EncodingKey, Header, TokenData, Validation,
+};
 use pyo3::prelude::*;
 use pyo3::types::{PyDict, PyList};
 use pyo3_asyncio::tokio::future_into_py;
-use jsonwebtoken::{decode, encode, Algorithm, DecodingKey, EncodingKey, Header, TokenData, Validation};
 use serde::{Deserialize, Serialize};
 use serde_json::{Map, Value};
 use std::time::{SystemTime, UNIX_EPOCH};
-use uuid::Uuid;
-use tokio::task;
 use tokio::runtime::Builder;
+use tokio::task;
+use uuid::Uuid;
 
-
+mod algorithms;
+mod jwt;
 mod secret;
 mod time;
-mod algorithms;
 mod utils;
-mod jwt;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Claims {
@@ -57,10 +59,8 @@ fn parse_algorithm(alg_str: &str) -> PyResult<Algorithm> {
     }
 }
 
-// Sync Implementation
 #[pymethods]
 impl CipherToken {
-    
     #[new]
     pub fn new(
         secret: String,
@@ -94,14 +94,12 @@ impl CipherToken {
             .as_secs()
             + ttl_time;
 
-        
         let mut payload_map = Map::new();
 
         if let Some(py_dict) = payload {
             for (key, value) in py_dict.iter() {
                 let key_str = key.extract::<String>()?;
 
-                
                 let json_value = python_to_json(py, value)?;
                 payload_map.insert(key_str, json_value);
             }
@@ -132,53 +130,27 @@ impl CipherToken {
                 .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?,
         };
 
-        let token = encode(
-            &Header::new(self.algorithm),
-            &claims,
-            &encoding_key,
-        )
-        .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
+        let token = encode(&Header::new(self.algorithm), &claims, &encoding_key)
+            .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
 
         Ok(token)
     }
 
     #[pyo3(signature = (payload=None))]
-    pub fn payload(
-        &self,
-        py: Python,
-        payload: Option<&PyDict>,
-    ) -> PyResult<String> {
+    pub fn payload(&self, py: Python, payload: Option<&PyDict>) -> PyResult<String> {
         self.create_token(py, self.access_ttl, "access".to_string(), payload)
     }
 
     /// create access token - sync
     #[pyo3(signature = (payload=None))]
-    pub fn access(
-        &self,
-        py: Python,
-        payload: Option<&PyDict>,
-    ) -> PyResult<String> {
-        self.create_token(
-            py,
-            self.access_ttl,
-            "access".to_string(),
-            payload,
-        )
+    pub fn access(&self, py: Python, payload: Option<&PyDict>) -> PyResult<String> {
+        self.create_token(py, self.access_ttl, "access".to_string(), payload)
     }
 
     /// create refresh token - sync
     #[pyo3(signature = (payload=None))]
-    pub fn refresh(
-        &self,
-        py: Python,
-        payload: Option<&PyDict>,
-    ) -> PyResult<String> {
-        self.create_token(
-            py,
-            self.refresh_ttl,
-            "refresh".to_string(),
-            payload,
-        )
+    pub fn refresh(&self, py: Python, payload: Option<&PyDict>) -> PyResult<String> {
+        self.create_token(py, self.refresh_ttl, "refresh".to_string(), payload)
     }
 
     /// decode token - sync
@@ -204,9 +176,8 @@ impl CipherToken {
                 .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?,
         };
 
-        let token_data: TokenData<Claims> =
-            decode::<Claims>(token, &decoding_key, &validation)
-                .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
+        let token_data: TokenData<Claims> = decode::<Claims>(token, &decoding_key, &validation)
+            .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
 
         let claims = token_data.claims;
         let dict = PyDict::new(py);
@@ -234,7 +205,7 @@ impl CipherToken {
     ) -> PyResult<(String, String)> {
         let claims_dict = self.decode(py, &refresh_token)?;
         let claims_dict = claims_dict.as_ref(py);
-        
+
         let token_type: String = claims_dict
             .get_item("token")?
             .ok_or_else(|| pyo3::exceptions::PyValueError::new_err("Token type not found"))?
@@ -246,7 +217,7 @@ impl CipherToken {
             ));
         }
 
-        let new_access = self.access(py, payload.clone())?;
+        let new_access = self.access(py, payload)?;
         let new_refresh = self.refresh(py, payload)?;
 
         Ok((new_access, new_refresh))
@@ -417,7 +388,7 @@ impl CipherToken {
             };
 
             let encoding_key = create_encoding_key(&secret, algorithm)?;
-            
+
             let token = task::spawn_blocking(move || {
                 encode(&Header::new(algorithm), &claims, &encoding_key)
             })
@@ -458,7 +429,7 @@ impl CipherToken {
             };
 
             let encoding_key = create_encoding_key(&secret, algorithm)?;
-            
+
             let token = task::spawn_blocking(move || {
                 encode(&Header::new(algorithm), &claims, &encoding_key)
             })
@@ -471,11 +442,7 @@ impl CipherToken {
     }
 
     /// decode token - async
-    pub fn decode_async<'a>(
-        &'a self,
-        py: Python<'a>,
-        token: String,
-    ) -> PyResult<&'a PyAny> {
+    pub fn decode_async<'a>(&'a self, py: Python<'a>, token: String) -> PyResult<&'a PyAny> {
         let secret = self.secret.clone();
         let algorithm = self.algorithm;
 
@@ -485,13 +452,12 @@ impl CipherToken {
             validation.required_spec_claims.clear();
 
             let decoding_key = create_decoding_key(&secret, algorithm)?;
-            
-            let token_data: TokenData<Claims> = task::spawn_blocking(move || {
-                decode::<Claims>(&token, &decoding_key, &validation)
-            })
-            .await
-            .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?
-            .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
+
+            let token_data: TokenData<Claims> =
+                task::spawn_blocking(move || decode::<Claims>(&token, &decoding_key, &validation))
+                    .await
+                    .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?
+                    .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
 
             let py_dict = Python::with_gil(|py| {
                 let dict = PyDict::new(py);
@@ -512,11 +478,7 @@ impl CipherToken {
     }
 
     /// verify token - async
-    pub fn verify_async<'a>(
-        &'a self,
-        py: Python<'a>,
-        token: String,
-    ) -> PyResult<&'a PyAny> {
+    pub fn verify_async<'a>(&'a self, py: Python<'a>, token: String) -> PyResult<&'a PyAny> {
         let secret = self.secret.clone();
         let algorithm = self.algorithm;
 
@@ -525,12 +487,11 @@ impl CipherToken {
             validation.validate_exp = true;
 
             let decoding_key = create_decoding_key(&secret, algorithm)?;
-            
-            let result = task::spawn_blocking(move || {
-                decode::<Claims>(&token, &decoding_key, &validation)
-            })
-            .await
-            .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
+
+            let result =
+                task::spawn_blocking(move || decode::<Claims>(&token, &decoding_key, &validation))
+                    .await
+                    .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
 
             match result {
                 Ok(_) => Ok(true),
@@ -552,7 +513,7 @@ impl CipherToken {
 
         future_into_py(py, async move {
             let claims_dict = token_instance.decode_async_inner(&refresh_token).await?;
-            
+
             let token_type: String = Python::with_gil(|py| {
                 claims_dict
                     .as_ref(py)
@@ -567,7 +528,9 @@ impl CipherToken {
                 ));
             }
 
-            let new_access = token_instance.access_async_inner(payload_cloned.clone()).await?;
+            let new_access = token_instance
+                .access_async_inner(payload_cloned.clone())
+                .await?;
             let new_refresh = token_instance.refresh_async_inner(payload_cloned).await?;
 
             Ok((new_access, new_refresh))
@@ -586,10 +549,7 @@ impl CipherToken {
         }
     }
 
-    pub(crate) async fn access_async_inner(
-        &self,
-        payload: Option<Py<PyDict>>,
-    ) -> PyResult<String> {
+    pub(crate) async fn access_async_inner(&self, payload: Option<Py<PyDict>>) -> PyResult<String> {
         let uuid = Uuid::new_v4();
         let exp = SystemTime::now()
             .duration_since(UNIX_EPOCH)
@@ -622,13 +582,12 @@ impl CipherToken {
         let algorithm = self.algorithm;
 
         let encoding_key = create_encoding_key(&self.secret, self.algorithm)?;
-        
-        let token = task::spawn_blocking(move || {
-            encode(&Header::new(algorithm), &claims, &encoding_key)
-        })
-        .await
-        .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?
-        .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
+
+        let token =
+            task::spawn_blocking(move || encode(&Header::new(algorithm), &claims, &encoding_key))
+                .await
+                .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?
+                .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
 
         Ok(token)
     }
@@ -669,13 +628,12 @@ impl CipherToken {
         let algorithm = self.algorithm;
 
         let encoding_key = create_encoding_key(&self.secret, self.algorithm)?;
-        
-        let token = task::spawn_blocking(move || {
-            encode(&Header::new(algorithm), &claims, &encoding_key)
-        })
-        .await
-        .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?
-        .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
+
+        let token =
+            task::spawn_blocking(move || encode(&Header::new(algorithm), &claims, &encoding_key))
+                .await
+                .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?
+                .map_err(|e| pyo3::exceptions::PyValueError::new_err(e.to_string()))?;
 
         Ok(token)
     }
@@ -686,7 +644,7 @@ impl CipherToken {
         validation.required_spec_claims.clear();
 
         let decoding_key = create_decoding_key(&self.secret, self.algorithm)?;
-        
+
         let token_owned = token.to_string();
         let token_data: TokenData<Claims> = task::spawn_blocking(move || {
             decode::<Claims>(&token_owned, &decoding_key, &validation)
@@ -767,7 +725,6 @@ fn create_decoding_key(secret: &str, algorithm: Algorithm) -> PyResult<DecodingK
     }
 }
 
-
 #[pyfunction]
 /// check if a token string looks like a valid JWT format
 pub fn is_jwt_format(token: &str) -> bool {
@@ -786,7 +743,7 @@ pub fn validate_jwt_format(token: &str) -> PyResult<bool> {
     Ok(true)
 }
 
-
+#[allow(clippy::only_used_in_recursion)]
 fn python_to_json(py: Python, obj: &PyAny) -> PyResult<Value> {
     if let Ok(s) = obj.extract::<String>() {
         Ok(Value::String(s))
@@ -825,7 +782,6 @@ fn python_to_json(py: Python, obj: &PyAny) -> PyResult<Value> {
         Ok(Value::String(obj.to_string()))
     }
 }
-
 
 fn json_to_python(py: Python, value: &Value) -> PyResult<PyObject> {
     match value {
@@ -878,7 +834,6 @@ fn ciphertoken(py: Python, m: &PyModule) -> PyResult<()> {
     // ---------------- TIME MODULE ----------------
     let time_mod = time::register_time_module(py)?;
     m.add_submodule(time_mod.as_ref(py))?;
-
 
     // ---------------- UTILS MODULE ----------------
     let utils_mod = utils::register_utils_module(py)?;
