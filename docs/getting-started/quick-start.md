@@ -52,11 +52,12 @@ is_valid = token.verify(access_token)
 # Full claims retrieval
 claims = token.decode(access_token)
 # {
-#   'payload': {'user_id': 42, 'role': 'admin'},
-#   'exp': 1716000000,
-#   'ttl': 600,
-#   'token': 'access',
-#   'jti': '550e8400-e29b-41d4-a716-446655440000'
+#     'exp': 1716000000,
+#     'ttl': 600,
+#     'token_type': 'access',
+#     'jti': '550e8400-e29b-41d4-a716-446655440000',
+#     'user_id': 42,
+#     'role': 'admin'
 # }
 ```
 

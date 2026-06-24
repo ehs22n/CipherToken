@@ -463,17 +463,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#algorithm-constants" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Algorithm Constants
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -772,7 +761,20 @@
 </tbody>
 </table>
 <hr />
-<h2 id="algorithm-constants">Algorithm Constants<a class="headerlink" href="#algorithm-constants" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code>## Claims Structure
+
+| Claim | Type | Description |
+|-------|------|-------------|
+| `exp` | `int` | UNIX expiry timestamp |
+| `ttl` | `int` | Time-to-live in seconds |
+| `token_type` | `str` | `&quot;access&quot;` or `&quot;refresh&quot;` |
+| `jti` | `str` | UUID v4 identifier |
+| _other keys_ | varies | User-provided payload claims (flattened) |
+
+---
+
+## Algorithm Constants
+</code></pre></div>
 <table>
 <thead>
 <tr>

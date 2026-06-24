@@ -26,7 +26,7 @@ class TestCipherToken:
     def test_decode_token(self, token_hs256):
         token = token_hs256.access({"user_id": 123, "role": "admin"})
         decoded = token_hs256.decode(token)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
         assert decoded["user_id"] == 123
         assert decoded["role"] == "admin"
         assert "exp" in decoded
@@ -43,7 +43,7 @@ class TestCipherToken:
     def test_inspect_token(self, token_hs256):
         token = token_hs256.access({"data": "test"})
         inspected = token_hs256.inspect(token)
-        assert inspected["token"] == "access"
+        assert inspected["token_type"] == "access"
         assert inspected["data"] == "test"
 
     def test_remaining_time(self, token_hs256):
@@ -61,7 +61,7 @@ class TestCipherToken:
         assert is_jwt_format(new_refresh)
 
         access_decoded = token_hs256.decode(access_token)
-        assert access_decoded["token"] == "access"
+        assert access_decoded["token_type"] == "access"
         assert access_decoded["user_id"] == 456
 
     def test_rotation_non_refresh_token(self, token_hs256):
@@ -99,20 +99,20 @@ class TestAsyncCipherToken:
         token = await token_hs256.access_async()
         assert is_jwt_format(token)
         decoded = token_hs256.decode(token)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
 
     @pytest.mark.asyncio
     async def test_refresh_async(self, token_hs256):
         token = await token_hs256.refresh_async()
         assert is_jwt_format(token)
         decoded = token_hs256.decode(token)
-        assert decoded["token"] == "refresh"
+        assert decoded["token_type"] == "refresh"
 
     @pytest.mark.asyncio
     async def test_decode_async(self, token_hs256):
         token = await token_hs256.access_async({"user": "test"})
         decoded = await token_hs256.decode_async(token)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
         assert decoded["user"] == "test"
 
     @pytest.mark.asyncio
@@ -135,7 +135,7 @@ class TestAsyncCipherToken:
         assert is_jwt_format(access_token)
         assert is_jwt_format(new_refresh)
         decoded = token_hs256.decode(access_token)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
         assert decoded["user_id"] == 789
 
 
@@ -147,14 +147,21 @@ class TestCreateToken:
         token = CipherToken(secret, HS256, 3600, 7200)
         access = token.create_token(3600, "access")
         decoded = token.decode(access)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
+
+    def test_create_token_with_defaults(self):
+        secret = secret_key()
+        token = CipherToken(secret, HS256, 3600, 7200)
+        t = token.create_token()
+        decoded = token.decode(t)
+        assert decoded["token_type"] == "jwt"
 
     def test_create_token_refresh(self):
         secret = secret_key()
         token = CipherToken(secret, HS256, 3600, 7200)
         refresh = token.create_token(7200, "refresh")
         decoded = token.decode(refresh)
-        assert decoded["token"] == "refresh"
+        assert decoded["token_type"] == "refresh"
 
 
 class TestPayloadMethod:
@@ -165,7 +172,7 @@ class TestPayloadMethod:
         token = CipherToken(secret, HS256, 3600, 7200)
         access = token.payload({"data": "value"})
         decoded = token.decode(access)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
         assert decoded["data"] == "value"
 
 
@@ -177,7 +184,7 @@ class TestPayloadEdgeCases:
         token = CipherToken(secret, HS256, 3600, 7200)
         access = token.access()
         decoded = token.decode(access)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
 
     def test_complex_payload(self):
         secret = secret_key()

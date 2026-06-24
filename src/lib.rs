@@ -22,7 +22,7 @@ mod utils;
 pub struct Claims {
     pub exp: usize,
     pub ttl: usize,
-    pub token: String,
+    pub token_type: String,
     pub jti: String,
     // payload
     #[serde(flatten)]
@@ -114,7 +114,7 @@ impl CipherToken {
         let claims = Claims {
             exp: exp as usize,
             ttl: ttl_time as usize,
-            token: token_type,
+            token_type,
             jti: uuid.to_string(),
             payload: payload_map,
         };
@@ -190,7 +190,7 @@ impl CipherToken {
 
         dict.set_item("exp", claims.exp)?;
         dict.set_item("ttl", claims.ttl)?;
-        dict.set_item("token", claims.token)?;
+        dict.set_item("token_type", claims.token_type)?;
         dict.set_item("jti", claims.jti)?;
 
         for (key, value) in claims.payload {
@@ -213,7 +213,7 @@ impl CipherToken {
         let claims_dict = claims_dict.as_ref(py);
 
         let token_type: String = claims_dict
-            .get_item("token")?
+            .get_item("token_type")?
             .ok_or_else(|| pyo3::exceptions::PyValueError::new_err("Token type not found"))?
             .extract()?;
 
@@ -284,7 +284,7 @@ impl CipherToken {
             Ok(decoded) => {
                 let dict = PyDict::new(py);
                 dict.set_item("exp", decoded.claims.exp)?;
-                dict.set_item("token", decoded.claims.token)?;
+                dict.set_item("token_type", decoded.claims.token_type)?;
                 dict.set_item("jti", decoded.claims.jti)?;
                 dict.set_item("ttl", decoded.claims.ttl)?;
 
@@ -388,7 +388,7 @@ impl CipherToken {
             let claims = Claims {
                 exp: exp as usize,
                 ttl: access_ttl as usize,
-                token: "access".to_string(),
+                token_type: "access".to_string(),
                 jti: uuid.to_string(),
                 payload: payload_map_from_py(payload_cloned).await?,
             };
@@ -429,7 +429,7 @@ impl CipherToken {
             let claims = Claims {
                 exp: exp as usize,
                 ttl: refresh_ttl as usize,
-                token: "refresh".to_string(),
+                token_type: "refresh".to_string(),
                 jti: uuid.to_string(),
                 payload: payload_map_from_py(payload_cloned).await?,
             };
@@ -469,7 +469,7 @@ impl CipherToken {
                 let dict = PyDict::new(py);
                 dict.set_item("exp", token_data.claims.exp)?;
                 dict.set_item("ttl", token_data.claims.ttl)?;
-                dict.set_item("token", token_data.claims.token)?;
+                dict.set_item("token_type", token_data.claims.token_type)?;
                 dict.set_item("jti", token_data.claims.jti)?;
 
                 for (key, value) in token_data.claims.payload {
@@ -523,7 +523,7 @@ impl CipherToken {
             let token_type: String = Python::with_gil(|py| {
                 claims_dict
                     .as_ref(py)
-                    .get_item("token")?
+                    .get_item("token_type")?
                     .ok_or_else(|| pyo3::exceptions::PyValueError::new_err("Token type not found"))?
                     .extract()
             })?;
@@ -581,7 +581,7 @@ impl CipherToken {
         let claims = Claims {
             exp: exp as usize,
             ttl: self.access_ttl as usize,
-            token: "access".to_string(),
+            token_type: "access".to_string(),
             jti: uuid.to_string(),
             payload: payload_map,
         };
@@ -627,7 +627,7 @@ impl CipherToken {
         let claims = Claims {
             exp: exp as usize,
             ttl: self.refresh_ttl as usize,
-            token: "refresh".to_string(),
+            token_type: "refresh".to_string(),
             jti: uuid.to_string(),
             payload: payload_map,
         };
@@ -663,7 +663,7 @@ impl CipherToken {
             let dict = PyDict::new(py);
             dict.set_item("exp", token_data.claims.exp)?;
             dict.set_item("ttl", token_data.claims.ttl)?;
-            dict.set_item("token", token_data.claims.token)?;
+            dict.set_item("token_type", token_data.claims.token_type)?;
             dict.set_item("jti", token_data.claims.jti)?;
 
             for (key, value) in token_data.claims.payload {

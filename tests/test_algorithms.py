@@ -65,21 +65,21 @@ class TestHMACAlgorithms:
         token = CipherToken(secret, HS256, 3600, 7200)
         access = token.access()
         decoded = token.decode(access)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
 
     def test_hs384(self):
         secret = secret_key()
         token = CipherToken(secret, HS384, 3600, 7200)
         access = token.access()
         decoded = token.decode(access)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
 
     def test_hs512(self):
         secret = secret_key()
         token = CipherToken(secret, HS512, 3600, 7200)
         access = token.access()
         decoded = token.decode(access)
-        assert decoded["token"] == "access"
+        assert decoded["token_type"] == "access"
 
 
 class TestRSAAlgorithms:

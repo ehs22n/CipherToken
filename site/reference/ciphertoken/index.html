@@ -406,6 +406,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Constructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Parameters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -420,10 +437,199 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#synchronous-methods" class="md-nav__link">
+  <a href="#token-creation-methods" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Synchronous Methods
+        Token Creation Methods
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token Creation Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accesspayload-optionaldictstr-any-none-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>access(payload: Optional[Dict[str, Any]] = None) -&gt; str</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refreshpayload-optionaldictstr-any-none-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>refresh(payload: Optional[Dict[str, Any]] = None) -&gt; str</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payloadpayload-optionaldictstr-any-none-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>payload(payload: Optional[Dict[str, Any]] = None) -&gt; str</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_tokenttl_time-int-3153600000-token_type-str-jwt-payload-optionaldictstr-any-none-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>create_token(ttl_time: int = 3153600000, token_type: str = "jwt", payload: Optional[Dict[str, Any]] = None) -&gt; str</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-verification-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Token Verification Methods
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token Verification Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verifytoken-str-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>verify(token: str) -&gt; bool</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decodetoken-str-dictstr-any" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>decode(token: str) -&gt; Dict[str, Any]</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecttoken-str-dictstr-any" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>inspect(token: str) -&gt; Dict[str, Any]</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remaining_timetoken-str-optionalint" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>remaining_time(token: str) -&gt; Optional[int]</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-rotation-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Token Rotation Methods
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token Rotation Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotationrefresh_token-str-payload-optionaldictstr-any-none-tuplestr-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>rotation(refresh_token: str, payload: Optional[Dict[str, Any]] = None) -&gt; Tuple[str, str]</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation_asyncrefresh_token-str-payload-optionaldictstr-any-none-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>rotation_async(refresh_token: str, payload: Optional[Dict[str, Any]] = None) -&gt; str</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Algorithm Methods
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Algorithm Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithm_name-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <code>algorithm_name() -&gt; str</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synchronous-methods-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Synchronous Methods Summary
       </span>
     </span>
   </a>
@@ -431,10 +637,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#asynchronous-methods" class="md-nav__link">
+  <a href="#asynchronous-methods-summary" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Asynchronous Methods
+        Asynchronous Methods Summary
       </span>
     </span>
   </a>
@@ -442,10 +648,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#helper-functions" class="md-nav__link">
+  <a href="#complete-workflow-example" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Helper Functions
+        Complete Workflow Example
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-workflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Async Workflow Example
       </span>
     </span>
   </a>
@@ -500,16 +717,18 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">token</span> <span class="o">=</span> <span class="n">CipherToken</span><span class="p">(</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">algorithm</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">access_ttl</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">refresh_ttl</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">algorithm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">access_ttl</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3600</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">refresh_ttl</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">604800</span><span class="p">,</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
 </span></code></pre></div>
+<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
 <th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -517,22 +736,26 @@
 <tr>
 <td><code>secret</code></td>
 <td><code>str</code></td>
-<td>Signing key (HMAC secret or RSA/ECDSA private key in PEM)</td>
+<td><em>(required)</em></td>
+<td>Signing key: HMAC secret string, or RSA/ECDSA private key in PEM format</td>
 </tr>
 <tr>
 <td><code>algorithm</code></td>
 <td><code>str</code></td>
-<td>Algorithm constant from <code>ciphertoken.algorithms</code></td>
+<td><code>"HS256"</code></td>
+<td>Algorithm constant from <code>ciphertoken.algorithms</code> (HS256, HS384, HS512, RS256, RS384, RS512, ES256, ES384, PS256, PS384, PS512, EDDSA)</td>
 </tr>
 <tr>
 <td><code>access_ttl</code></td>
 <td><code>int</code></td>
-<td>Access token lifetime in seconds</td>
+<td><code>3600</code></td>
+<td>Access token lifetime in seconds (1 hour)</td>
 </tr>
 <tr>
 <td><code>refresh_ttl</code></td>
 <td><code>int</code></td>
-<td>Refresh token lifetime in seconds</td>
+<td><code>604800</code></td>
+<td>Refresh token lifetime in seconds (7 days)</td>
 </tr>
 </tbody>
 </table>
@@ -550,7 +773,7 @@
 <tr>
 <td><code>secret</code></td>
 <td><code>str</code></td>
-<td>Masked secret (first 8 chars + <code>...</code>)</td>
+<td>Masked secret (first 8 chars + <code>...</code>) for security; returns <code>"***"</code> if secret is shorter than 8 characters</td>
 </tr>
 <tr>
 <td><code>access_ttl</code></td>
@@ -565,90 +788,318 @@
 </tbody>
 </table>
 <hr />
-<h2 id="synchronous-methods">Synchronous Methods<a class="headerlink" href="#synchronous-methods" title="Permanent link">&para;</a></h2>
-<div class="grid cards">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">payload</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<h2 id="token-creation-methods">Token Creation Methods<a class="headerlink" href="#token-creation-methods" title="Permanent link">&para;</a></h2>
+<h3 id="accesspayload-optionaldictstr-any-none-str"><code>access(payload: Optional[Dict[str, Any]] = None) -&gt; str</code><a class="headerlink" href="#accesspayload-optionaldictstr-any-none-str" title="Permanent link">&para;</a></h3>
+<p>Create an access token. Can be called in multiple ways:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Method 1: Using CipherToken instance method</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">ct</span> <span class="o">=</span> <span class="n">CipherToken</span><span class="p">(</span><span class="n">secret</span><span class="o">=</span><span class="s2">&quot;my-secret&quot;</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;HS256&quot;</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">access_token</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Method 2: Using jwt module function</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ciphertoken.jwt</span><span class="w"> </span><span class="kn">import</span> <span class="n">access</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">access_token</span> <span class="o">=</span> <span class="n">access</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># Method 3: Using create_token directly (same as access)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">access_token</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">create_token</span><span class="p">(</span><span class="n">ttl_time</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span> <span class="n">token_type</span><span class="o">=</span><span class="s2">&quot;access&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
 </span></code></pre></div>
-<p>Create a generic access token.</p>
 <hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">access</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<h3 id="refreshpayload-optionaldictstr-any-none-str"><code>refresh(payload: Optional[Dict[str, Any]] = None) -&gt; str</code><a class="headerlink" href="#refreshpayload-optionaldictstr-any-none-str" title="Permanent link">&para;</a></h3>
+<p>Create a refresh token. Can be called in multiple ways:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Method 1: Using CipherToken instance method</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">refresh_token</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Method 2: Using jwt module function</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ciphertoken.jwt</span><span class="w"> </span><span class="kn">import</span> <span class="n">refresh</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">refresh_token</span> <span class="o">=</span> <span class="n">refresh</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># Method 3: Using create_token directly</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">refresh_token</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">create_token</span><span class="p">(</span><span class="n">ttl_time</span><span class="o">=</span><span class="mi">604800</span><span class="p">,</span> <span class="n">token_type</span><span class="o">=</span><span class="s2">&quot;refresh&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
 </span></code></pre></div>
-<p>Create an access token.</p>
 <hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">refresh</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
-</span></code></pre></div>
-<p>Create a refresh token.</p>
+<h3 id="payloadpayload-optionaldictstr-any-none-str"><code>payload(payload: Optional[Dict[str, Any]] = None) -&gt; str</code><a class="headerlink" href="#payloadpayload-optionaldictstr-any-none-str" title="Permanent link">&para;</a></h3>
+<p>Create a generic access token (alias for <code>access</code>). Same behavior as <code>access()</code>.</p>
 <hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
-</span></code></pre></div>
-<p>Decode and validate a token. Returns full claims. Raises <code>ValueError</code> if invalid.</p>
-<hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">verify</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
-</span></code></pre></div>
-<p>Validate signature and expiry.</p>
-<hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">rotation</span><span class="p">(</span><span class="n">refresh_token</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
-</span></code></pre></div>
-<p>Rotate a refresh token into a new access + refresh pair.</p>
-<hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">inspect</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
-</span></code></pre></div>
-<p>Decode without strict signature or expiry validation. For debugging.</p>
-<hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">remaining_time</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
-</span></code></pre></div>
-<p>Seconds until token expiry, or <code>None</code>.</p>
-<hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">algorithm_name</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
-</span></code></pre></div>
-<p>Current algorithm string (e.g., <code>"HS256"</code>).</p>
-</div>
-<hr />
-<h2 id="asynchronous-methods">Asynchronous Methods<a class="headerlink" href="#asynchronous-methods" title="Permanent link">&para;</a></h2>
-<div class="grid cards">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">access_async</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
-</span></code></pre></div>
-<p>Async access token generation.</p>
-<hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">refresh_async</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
-</span></code></pre></div>
-<p>Async refresh token generation.</p>
-<hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">decode_async</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
-</span></code></pre></div>
-<p>Async decode and validate.</p>
-<hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">verify_async</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
-</span></code></pre></div>
-<p>Async verify signature and expiry.</p>
-<hr />
-<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">rotation_async</span><span class="p">(</span><span class="n">refresh_token</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
-</span></code></pre></div>
-<p>Async token rotation.</p>
-</div>
-<hr />
-<h2 id="helper-functions">Helper Functions<a class="headerlink" href="#helper-functions" title="Permanent link">&para;</a></h2>
+<h3 id="create_tokenttl_time-int-3153600000-token_type-str-jwt-payload-optionaldictstr-any-none-str"><code>create_token(ttl_time: int = 3153600000, token_type: str = "jwt", payload: Optional[Dict[str, Any]] = None) -&gt; str</code><a class="headerlink" href="#create_tokenttl_time-int-3153600000-token_type-str-jwt-payload-optionaldictstr-any-none-str" title="Permanent link">&para;</a></h3>
+<p>Core token creation method. Creates tokens with custom TTL and type.</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
-<th>Function</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ttl_time</code></td>
+<td><code>int</code></td>
+<td><code>3153600000</code></td>
+<td>Time-to-live in seconds (max ~100 years)</td>
+</tr>
+<tr>
+<td><code>token_type</code></td>
+<td><code>str</code></td>
+<td><code>"jwt"</code></td>
+<td>Token type identifier (<code>"access"</code> or <code>"refresh"</code>)</td>
+</tr>
+<tr>
+<td><code>payload</code></td>
+<td><code>Optional[Dict[str, Any]]</code></td>
+<td><code>None</code></td>
+<td>Custom claims to include in token</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Custom TTL token</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">custom_token</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">create_token</span><span class="p">(</span><span class="n">ttl_time</span><span class="o">=</span><span class="mi">7200</span><span class="p">,</span> <span class="n">token_type</span><span class="o">=</span><span class="s2">&quot;access&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">})</span>
+</span></code></pre></div>
+<hr />
+<h2 id="token-verification-methods">Token Verification Methods<a class="headerlink" href="#token-verification-methods" title="Permanent link">&para;</a></h2>
+<h3 id="verifytoken-str-bool"><code>verify(token: str) -&gt; bool</code><a class="headerlink" href="#verifytoken-str-bool" title="Permanent link">&para;</a></h3>
+<p>Validate token signature and expiry. Returns <code>True</code> if valid, <code>False</code> if invalid.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Valid token</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">ct</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>  <span class="c1"># True</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Invalid or expired token</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">ct</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="s2">&quot;invalid.token.here&quot;</span><span class="p">)</span>  <span class="c1"># False</span>
+</span></code></pre></div>
+<hr />
+<h3 id="decodetoken-str-dictstr-any"><code>decode(token: str) -&gt; Dict[str, Any]</code><a class="headerlink" href="#decodetoken-str-dictstr-any" title="Permanent link">&para;</a></h3>
+<p>Decode and validate a token. Returns full claims as a dictionary. Raises <code>ValueError</code> on invalid tokens.</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exp</code></td>
+<td><code>int</code></td>
+<td>UNIX expiry timestamp</td>
+</tr>
+<tr>
+<td><code>ttl</code></td>
+<td><code>int</code></td>
+<td>Time-to-live in seconds</td>
+</tr>
+<tr>
+<td><code>token_type</code></td>
+<td><code>str</code></td>
+<td><code>"access"</code> or <code>"refresh"</code></td>
+</tr>
+<tr>
+<td><code>jti</code></td>
+<td><code>str</code></td>
+<td>UUID v4 identifier</td>
+</tr>
+<tr>
+<td><em>other keys</em></td>
+<td>varies</td>
+<td>User-provided payload claims</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">claims</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># {</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">#     &#39;exp&#39;: 1716000000,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">#     &#39;ttl&#39;: 3600,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">#     &#39;token_type&#39;: &#39;access&#39;,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">#     &#39;jti&#39;: &#39;550e8400-e29b-41d4-a716-446655440000&#39;,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">#     &#39;user_id&#39;: 42,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">#     &#39;role&#39;: &#39;admin&#39;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1"># }</span>
+</span></code></pre></div>
+<hr />
+<h3 id="inspecttoken-str-dictstr-any"><code>inspect(token: str) -&gt; Dict[str, Any]</code><a class="headerlink" href="#inspecttoken-str-dictstr-any" title="Permanent link">&para;</a></h3>
+<p>Decode without strict signature or expiry validation. Useful for debugging expired tokens.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Inspect an expired token without error</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">claims</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">expired_token</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="remaining_timetoken-str-optionalint"><code>remaining_time(token: str) -&gt; Optional[int]</code><a class="headerlink" href="#remaining_timetoken-str-optionalint" title="Permanent link">&para;</a></h3>
+<p>Get seconds until token expiry. Returns <code>None</code> if the token has no expiry claim.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">remaining</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">remaining_time</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>  <span class="c1"># e.g., 3599</span>
+</span></code></pre></div>
+<hr />
+<h2 id="token-rotation-methods">Token Rotation Methods<a class="headerlink" href="#token-rotation-methods" title="Permanent link">&para;</a></h2>
+<h3 id="rotationrefresh_token-str-payload-optionaldictstr-any-none-tuplestr-str"><code>rotation(refresh_token: str, payload: Optional[Dict[str, Any]] = None) -&gt; Tuple[str, str]</code><a class="headerlink" href="#rotationrefresh_token-str-payload-optionaldictstr-any-none-tuplestr-str" title="Permanent link">&para;</a></h3>
+<p>Rotate a refresh token into a new access + refresh pair. Raises <code>ValueError</code> if the provided token is not a refresh token.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Method 1: Instance method</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">new_access</span><span class="p">,</span> <span class="n">new_refresh</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="n">old_refresh_token</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Method 2: Module function</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ciphertoken.jwt</span><span class="w"> </span><span class="kn">import</span> <span class="n">rotation</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">new_access</span><span class="p">,</span> <span class="n">new_refresh</span> <span class="o">=</span> <span class="n">rotation</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">old_refresh_token</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</span></code></pre></div>
+<p><strong>Raises:</strong>
+- <code>ValueError</code>: If token_type is not <code>"refresh"</code></p>
+<hr />
+<h3 id="rotation_asyncrefresh_token-str-payload-optionaldictstr-any-none-str"><code>rotation_async(refresh_token: str, payload: Optional[Dict[str, Any]] = None) -&gt; str</code><a class="headerlink" href="#rotation_asyncrefresh_token-str-payload-optionaldictstr-any-none-str" title="Permanent link">&para;</a></h3>
+<p>Async version of rotation. Use in async contexts.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Instance method</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">new_access</span><span class="p">,</span> <span class="n">new_refresh</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ct</span><span class="o">.</span><span class="n">rotation_async</span><span class="p">(</span><span class="n">old_refresh_token</span><span class="p">)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Module function</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ciphertoken.jwt</span><span class="w"> </span><span class="kn">import</span> <span class="n">rotation_async</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">new_access</span><span class="p">,</span> <span class="n">new_refresh</span> <span class="o">=</span> <span class="k">await</span> <span class="n">rotation_async</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">old_refresh_token</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="algorithm-methods">Algorithm Methods<a class="headerlink" href="#algorithm-methods" title="Permanent link">&para;</a></h2>
+<h3 id="algorithm_name-str"><code>algorithm_name() -&gt; str</code><a class="headerlink" href="#algorithm_name-str" title="Permanent link">&para;</a></h3>
+<p>Get the current algorithm name as a string.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">ct</span><span class="o">.</span><span class="n">algorithm_name</span><span class="p">()</span>  <span class="c1"># &quot;HS256&quot;, &quot;RS256&quot;, etc.</span>
+</span></code></pre></div>
+<hr />
+<h2 id="synchronous-methods-summary">Synchronous Methods Summary<a class="headerlink" href="#synchronous-methods-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
 <th>Signature</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>is_jwt_format</code></td>
-<td><code>(token: str) -&gt; bool</code></td>
-<td>Fast format check — 3 dot-separated parts</td>
+<td><code>access</code></td>
+<td><code>(payload: Optional[dict] = None) -&gt; str</code></td>
+<td>Create access token</td>
 </tr>
 <tr>
-<td><code>validate_jwt_format</code></td>
+<td><code>refresh</code></td>
+<td><code>(payload: Optional[dict] = None) -&gt; str</code></td>
+<td>Create refresh token</td>
+</tr>
+<tr>
+<td><code>rotation</code></td>
+<td><code>(refresh_token: str, payload: Optional[dict] = None) -&gt; Tuple[str, str]</code></td>
+<td>Rotate refresh token</td>
+</tr>
+<tr>
+<td><code>decode</code></td>
+<td><code>(token: str) -&gt; dict</code></td>
+<td>Decode and validate token</td>
+</tr>
+<tr>
+<td><code>verify</code></td>
 <td><code>(token: str) -&gt; bool</code></td>
-<td>Same as above, raises <code>ValueError</code> on invalid</td>
+<td>Check signature and expiry</td>
+</tr>
+<tr>
+<td><code>inspect</code></td>
+<td><code>(token: str) -&gt; dict</code></td>
+<td>Decode without strict validation</td>
+</tr>
+<tr>
+<td><code>remaining_time</code></td>
+<td><code>(token: str) -&gt; Optional[int]</code></td>
+<td>Seconds until expiry</td>
+</tr>
+<tr>
+<td><code>algorithm_name</code></td>
+<td><code>() -&gt; str</code></td>
+<td>Current algorithm name</td>
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="asynchronous-methods-summary">Asynchronous Methods Summary<a class="headerlink" href="#asynchronous-methods-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Signature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>access_async</code></td>
+<td><code>(payload: Optional[dict] = None) -&gt; str</code></td>
+<td>Async access token</td>
+</tr>
+<tr>
+<td><code>refresh_async</code></td>
+<td><code>(payload: Optional[dict] = None) -&gt; str</code></td>
+<td>Async refresh token</td>
+</tr>
+<tr>
+<td><code>decode_async</code></td>
+<td><code>(token: str) -&gt; dict</code></td>
+<td>Async decode and validate</td>
+</tr>
+<tr>
+<td><code>verify_async</code></td>
+<td><code>(token: str) -&gt; bool</code></td>
+<td>Async verify signature</td>
+</tr>
+<tr>
+<td><code>rotation_async</code></td>
+<td><code>(refresh_token: str, payload: Optional[dict] = None) -&gt; Tuple[str, str]</code></td>
+<td>Async rotation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="complete-workflow-example">Complete Workflow Example<a class="headerlink" href="#complete-workflow-example" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ciphertoken</span><span class="w"> </span><span class="kn">import</span> <span class="n">CipherToken</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ciphertoken.jwt</span><span class="w"> </span><span class="kn">import</span> <span class="n">access</span><span class="p">,</span> <span class="n">refresh</span><span class="p">,</span> <span class="n">rotation</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ciphertoken.algorithms</span><span class="w"> </span><span class="kn">import</span> <span class="n">HS256</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># Initialize once</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">ct</span> <span class="o">=</span> <span class="n">CipherToken</span><span class="p">(</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;your-strong-secret-key&quot;</span><span class="p">,</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="n">algorithm</span><span class="o">=</span><span class="n">HS256</span><span class="p">,</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="n">access_ttl</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="n">refresh_ttl</span><span class="o">=</span><span class="mi">604800</span><span class="p">,</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="p">)</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># Create tokens (3 ways)</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">access_token_1</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="n">access_token_2</span> <span class="o">=</span> <span class="n">access</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="n">access_token_3</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">create_token</span><span class="p">(</span><span class="n">ttl_time</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span> <span class="n">token_type</span><span class="o">=</span><span class="s2">&quot;access&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="c1"># All equivalent</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="k">assert</span> <span class="n">access_token_1</span> <span class="o">==</span> <span class="n">access_token_2</span> <span class="o">==</span> <span class="n">access_token_3</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="c1"># Verify</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="n">ct</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>   <span class="c1"># True</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="c1"># Decode</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="n">claims</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="c1"># {&#39;exp&#39;: 1716000000, &#39;ttl&#39;: 3600, &#39;token_type&#39;: &#39;access&#39;, &#39;jti&#39;: &#39;...&#39;, &#39;user_id&#39;: 42, &#39;role&#39;: &#39;admin&#39;}</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="c1"># Rotate</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="n">new_access</span><span class="p">,</span> <span class="n">new_refresh</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="n">old_refresh_token</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="async-workflow-example">Async Workflow Example<a class="headerlink" href="#async-workflow-example" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ciphertoken</span><span class="w"> </span><span class="kn">import</span> <span class="n">CipherToken</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ciphertoken.jwt</span><span class="w"> </span><span class="kn">import</span> <span class="n">access_async</span><span class="p">,</span> <span class="n">refresh_async</span><span class="p">,</span> <span class="n">rotation_async</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">ct</span> <span class="o">=</span> <span class="n">CipherToken</span><span class="p">(</span><span class="n">secret</span><span class="o">=</span><span class="s2">&quot;my-secret&quot;</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;HS256&quot;</span><span class="p">)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="c1"># Async token creation (2 ways)</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="n">access_1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ct</span><span class="o">.</span><span class="n">access_async</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    <span class="n">access_2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">access_async</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>    <span class="c1"># Refresh token</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>    <span class="n">refresh_1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ct</span><span class="o">.</span><span class="n">refresh_async</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>    <span class="n">refresh_2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">refresh_async</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    <span class="c1"># Rotate</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>    <span class="n">new_access</span><span class="p">,</span> <span class="n">new_refresh</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ct</span><span class="o">.</span><span class="n">rotation_async</span><span class="p">(</span><span class="n">refresh_1</span><span class="p">)</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</span></code></pre></div>
 <hr />
 <h2 id="claims-structure">Claims Structure<a class="headerlink" href="#claims-structure" title="Permanent link">&para;</a></h2>
 <p>Every token contains:</p>
@@ -669,10 +1120,10 @@
 <tr>
 <td><code>ttl</code></td>
 <td><code>int</code></td>
-<td>Time-to-live in seconds</td>
+<td>Time-to-live in seconds when token was created</td>
 </tr>
 <tr>
-<td><code>token</code></td>
+<td><code>token_type</code></td>
 <td><code>str</code></td>
 <td><code>"access"</code> or <code>"refresh"</code></td>
 </tr>
@@ -684,7 +1135,7 @@
 <tr>
 <td><code>payload</code></td>
 <td><code>dict</code></td>
-<td>User-provided claims</td>
+<td>Flattened user-provided claims (no nested "payload" key)</td>
 </tr>
 </tbody>
 </table>

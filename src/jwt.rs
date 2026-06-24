@@ -75,7 +75,7 @@ pub fn rotation_async<'a>(
         let token_type: String = Python::with_gil(|py| {
             claims_dict
                 .as_ref(py)
-                .get_item("token")?
+                .get_item("token_type")?
                 .ok_or_else(|| pyo3::exceptions::PyValueError::new_err("Token type not found"))?
                 .extract()
         })?;

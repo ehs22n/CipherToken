@@ -1,6 +1,6 @@
 {
     "python.defaultInterpreterPath": "./.venv/bin/python",
     "python.analysis.autoCompleteExtraPaths": ["./ciphertoken"],
-    "python.analysis.stubPath": "./typings",
+    "python.analysis.stubPath": "./ciphertoken",
     "python.languageServer": "Pylance"
 }
