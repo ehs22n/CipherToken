@@ -62,6 +62,12 @@ fn parse_algorithm(alg_str: &str) -> PyResult<Algorithm> {
 #[pymethods]
 impl CipherToken {
     #[new]
+    #[pyo3(signature = (
+        secret,
+        algorithm = "HS256".to_owned(),
+        access_ttl = 3600,
+        refresh_ttl = 604800
+    ))]
     pub fn new(
         secret: String,
         algorithm: String,
@@ -78,7 +84,7 @@ impl CipherToken {
         })
     }
 
-    #[pyo3(signature = (ttl_time, token_type, payload=None))]
+    #[pyo3(signature = (ttl_time = 3153600000u64, token_type = "jwt".to_owned(),payload = None))]
     pub fn create_token(
         &self,
         py: Python,
